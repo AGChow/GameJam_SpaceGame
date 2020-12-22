@@ -1,0 +1,48 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class AsteroidField : MonoBehaviour
+{
+    public GameManager gameManager;
+    public GameObject meteor;
+    public float timer;
+    public float spawnRate = 1f;
+    public float random;
+    public float random2;
+    public float random3;
+
+    public float startDelay = 2;
+    public float spawnInterval = 1.5f;
+    // Start is called before the first frame update
+    void Start()
+    {
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+
+        timer += Time.deltaTime;
+
+        if (gameManager.startMeteor == true)
+        {
+            InvokeRepeating("StartAsteroids", 1, spawnRate);
+        }
+
+        if (gameManager.startMeteor == false)
+        {
+            CancelInvoke();
+        }
+
+    }
+
+    void StartAsteroids()
+    {
+        random = Random.Range(-60, 60);
+        random2 = Random.Range(-60, 60);
+        random3 = Random.Range(550, 500);
+        Instantiate(meteor, new Vector3(random, random2, random3), Quaternion.identity);
+    }
+
+}
