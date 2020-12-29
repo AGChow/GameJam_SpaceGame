@@ -1,0 +1,47 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class CameraManager : MonoBehaviour
+{
+    public Camera playerFollowCamera;
+    public Camera cockpitCamera;
+    public Camera gunnerCamera;
+    public Camera extraCamera;
+
+    public void PlayerFollowCamera()
+    {
+        playerFollowCamera.enabled = true;
+        cockpitCamera.enabled = false;
+        gunnerCamera.enabled = false;
+        extraCamera.enabled = false;
+    }
+
+    public void CockpitCamera()
+    {
+        playerFollowCamera.enabled = false;
+        cockpitCamera.enabled = true;
+        gunnerCamera.enabled = false;
+        extraCamera.enabled = false;
+
+    }
+
+    public void GunnerCamera()
+    {
+        playerFollowCamera.enabled = false;
+        cockpitCamera.enabled = false;
+        gunnerCamera.enabled = true;
+        extraCamera.enabled = false;
+    }
+
+    public void ExtraCamera()
+    {
+        playerFollowCamera.enabled = false;
+        cockpitCamera.enabled = false;
+        gunnerCamera.enabled = false;
+        extraCamera.enabled = true;
+
+    }
+
+
+}
